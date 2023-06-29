@@ -9,60 +9,27 @@
   </head>
 
   <body class="content">
-    <h1 class="name">
+    <h1 class="name" id="name1">
       You are invited to an oven party.
     </h1>
-
-    <h2>We hope you will join us.</h2>
-
-    <h2 id="rules"><i>Rules</i></h2>
-    <ul class="essay">
-      <li>Be dressed for an evening on the beach (with a little accoutrement)</li>
-      <li>You must each bring a bottle of wine, of no greater value than $20 - gems in the rough are preferred</li>
-      <li>We will all share wine with everyone, and you shall not try more than a glass of your own wine</li>
-      <li>Be sure to have eaten dinner beforehand</li>
-      <li>Please do not be late</li>
-      <li>If you have a portable table (e.g. folding table), please let the hosts know as soon as possible</li>
-    </ul>
-
-    See you there! We love you.
-
+    <h1 class="name" id="name2" style="display:none">
+      Join us.
+    </h1>
   </body>
 
   <script>
-    const randInt = max => Math.floor(Math.random() * max)
-
-    const darkmode_toggle = () => {
-      let opts = ["I prefer the dark", "I prefer colour", "I prefer the light"]
-
-      let init_val = document.getElementById("darkmode-toggle-text").textContent
-      let current_val = opts.indexOf(init_val)
-      let next_val = 1 + current_val == opts.length ? 0 : 1 + current_val
-
-      let bgc = ""
-      let c = ""
-      if (next_val == 0) {
-        bgc = ""
-        c = ""
-      } else if (next_val == 1) {
-        bgc = "#000"
-        c = "#BBB"
-      } else if (next_val == 2) {
-        let [r, g, b] = [randInt(255), randInt(255), randInt(255)]
-        bgc = `rgb(${r},${g},${b})`
-        c = r * 0.299 + g * 0.587 + b * 0.114 > 186 ? "#222" : "#EEE"
+    let i = 0;
+    const blinkypoos = () => {
+      if (i % 2 == 0) {
+        document.getElementById("name1").style.display = "block";
+        document.getElementById("name2").style.display = "none";
+      } else {
+        document.getElementById("name1").style.display = "none";
+        document.getElementById("name2").style.display = "block";
       }
-
-      document.body.style.color = c
-      document.body.style.backgroundColor = bgc
-      document.getElementById("darkmode-toggle-text").textContent = opts[next_val]
+      i += 1;
     }
-
-    let dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (dark) {
-      darkmode_toggle()
-    }
-
+    setInterval(blinkypoos,600);
   </script>
 
 </html>
