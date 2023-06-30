@@ -12,7 +12,7 @@
     <h1 class="name" id="name1">
       Its time for a party.
     </h1>
-    <h1 class="name" id="name2">
+    <h1 class="name" id="name2" style="display:none">
       An oven party.
     </h1>
     <h1 class="name" id="name3" style="display:none">
@@ -28,15 +28,23 @@
     let i = 0;
     const blinkypoos = () => {
       if (i == 0) {
-        document.getElementById("name4").style.display = "none";
         document.getElementById("name1").style.display = "block";
+        document.getElementById("name2").style.display = "none";
+        document.getElementById("name3").style.display = "none";
+        document.getElementById("name4").style.display = "none";
       } else if (i == 1) {
         document.getElementById("name1").style.display = "none";
         document.getElementById("name2").style.display = "block";
+        document.getElementById("name3").style.display = "none";
+        document.getElementById("name4").style.display = "none";
       } else if (i == 2) {
+        document.getElementById("name1").style.display = "none";
         document.getElementById("name2").style.display = "none";
         document.getElementById("name3").style.display = "block";
+        document.getElementById("name4").style.display = "none";
       } else {
+        document.getElementById("name1").style.display = "none";
+        document.getElementById("name2").style.display = "none";
         document.getElementById("name3").style.display = "none";
         document.getElementById("name4").style.display = "block";
       }
