@@ -10,12 +10,15 @@
 
   <body class="content">
     <h1 class="name" id="name1">
-      You are invited to an oven party.
+      You are invited to a party.
     </h1>
-    <h1 class="name" id="name2" style="display:none">
-      Join us.
+    <h1 class="name" id="name2">
+      An oven party.
     </h1>
     <h1 class="name" id="name3" style="display:none">
+      Join us.
+    </h1>
+    <h1 class="name" id="name4" style="display:none">
       after<br>
       08 07 2023
     </h1>
@@ -25,20 +28,20 @@
     let i = 0;
     const blinkypoos = () => {
       if (i == 0) {
+        document.getElementById("name4").style.display = "none";
         document.getElementById("name1").style.display = "block";
-        document.getElementById("name2").style.display = "none";
-        document.getElementById("name3").style.display = "none";
       } else if (i == 1) {
         document.getElementById("name1").style.display = "none";
         document.getElementById("name2").style.display = "block";
-        document.getElementById("name3").style.display = "none";
-      } else {
-        document.getElementById("name1").style.display = "none";
+      } else if (i == 2) {
         document.getElementById("name2").style.display = "none";
         document.getElementById("name3").style.display = "block";
+      } else {
+        document.getElementById("name3").style.display = "none";
+        document.getElementById("name4").style.display = "block";
       }
       console.log(i)
-      i = (i + 1) % 3;
+      i = (i + 1) % 4;
     }
     setInterval(blinkypoos,800);
   </script>
