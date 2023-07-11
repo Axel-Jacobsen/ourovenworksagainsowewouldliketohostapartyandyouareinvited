@@ -11,7 +11,13 @@ body {
   background-color: rgb(170, 170, 170);
   font-family: "Crimson Pro";
   padding-top: 25px;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 100%;
+  width: 100%;
 }
 
 a {
@@ -36,6 +42,16 @@ a {
   font-family: "Crimson Pro";
   font-size: 50px;
   text-align: left;
+}
+
+.faqcontent {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  height: 100%;
+  width: 70%
 }
 
 .content {
