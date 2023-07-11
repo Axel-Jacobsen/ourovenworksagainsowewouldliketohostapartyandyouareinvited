@@ -9,46 +9,43 @@
   </head>
 
   <body class="content">
-    <h1 class="name" id="name1">
-      It's time for a party.
-    </h1>
-    <h1 class="name" id="name2" style="display:none">
-      An oven party.
-    </h1>
-    <h1 class="name" id="name3" style="display:none">
-      Join us.
-    </h1>
-    <h1 class="name" id="name4" style="display:none">
-      15 07 2023<br>7 pm sharp
-    </h1>
+    <div class="name" id="name1">
+      <b>It's time for a party.</b>
+    </div>
+    <div class="name" id="name2" style="display:none">
+      <b>An oven party.</b>
+    </div>
+    <div class="name" id="name3" style="display:none">
+      <b>Join us.</b>
+    </div>
+    <div class="name" id="name4" style="display:none">
+      <b>15 07 2023</b>
+      <br>
+      <b>7 pm sharp</b>
+    </div>
+    <div class="name" id="name5" style="display:none">
+      <a href="faq"><b>FAQ</b></a>
+      <br>
+      <a href="fakefaq"><b>Fake FAQ</b></a>
+    </div>
   </body>
 
   <script>
     let i = 0;
     const blinkypoos = () => {
-      if (i == 0) {
-        document.getElementById("name1").style.display = "block";
-        document.getElementById("name2").style.display = "none";
-        document.getElementById("name3").style.display = "none";
-        document.getElementById("name4").style.display = "none";
-      } else if (i == 1) {
-        document.getElementById("name1").style.display = "none";
-        document.getElementById("name2").style.display = "block";
-        document.getElementById("name3").style.display = "none";
-        document.getElementById("name4").style.display = "none";
-      } else if (i == 2) {
-        document.getElementById("name1").style.display = "none";
-        document.getElementById("name2").style.display = "none";
-        document.getElementById("name3").style.display = "block";
-        document.getElementById("name4").style.display = "none";
-      } else {
-        document.getElementById("name1").style.display = "none";
-        document.getElementById("name2").style.display = "none";
-        document.getElementById("name3").style.display = "none";
-        document.getElementById("name4").style.display = "block";
+      const elements = [
+        document.getElementById("name1"),
+        document.getElementById("name2"),
+        document.getElementById("name3"),
+        document.getElementById("name4"),
+        document.getElementById("name5")
+      ];
+
+      for (let j = 0; j < elements.length; j++) {
+        elements[j].style.display = (i == j) ? "block" : "none";
       }
-      console.log(i)
-      i = (i + 1) % 4;
+
+      i = (i + 1) % elements.length;
     }
     setInterval(blinkypoos,800);
   </script>
